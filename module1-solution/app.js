@@ -2,11 +2,11 @@
 (function () {
     
 
-    angular.module('EaterApp', [])
-    .controller('EaterController', EaterController);
+    angular.module('LunchCheck', [])
+    .controller('LunchCheckController', LunchCheckController);
     
-    EaterController.$inject = ["$scope"];
-    function EaterController ($scope) {
+    LunchCheckController.$inject = ["$scope"];
+    function LunchCheckController ($scope) {
         
         $scope.check = function () {
             if ($scope.lunchMenu) {
