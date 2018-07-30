@@ -6,14 +6,18 @@
 
     NarrowItDownController.$inject = ["MenuSearchService"];
     function NarrowItDownController(MenuSearchService) {
-        var found = [];
-        var predicateStr = "beef"
-        MenuSearchService.getMatchedMenuItems(predicateStr)
+        var ctrl = this
+        ctrl.found = [];
+        ctrl.predicate = "";
+        ctrl.narrow = function() {
+            MenuSearchService.getMatchedMenuItems(ctrl.predicate)
             .then(function (foundItems) {
                 console.log("foundItems", foundItems)
-                found = foundItems;
+                ctrl.found = foundItems;
             })
             .catch(function(e) { console.error(e);})
+        }
+        
     }
 
     MenuSearchService.$inject = ["$http"];
@@ -30,8 +34,9 @@
                     return o.description.indexOf(predicateStr) >= 0;
                 });
             })
-        }
-        
+        }    
     }
+
+
 
 })();
