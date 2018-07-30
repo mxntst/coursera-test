@@ -10,8 +10,8 @@
     function ToBuyController (ShoppingListCheckOffService) {
         var toBuy = this
         toBuy.items = ShoppingListCheckOffService.getToBuyItems();
-        toBuy.bought = function (item) {
-            ShoppingListCheckOffService.bought(item);
+        toBuy.bought = function (id) {
+            ShoppingListCheckOffService.bought(id);
         }
     }
 
@@ -35,10 +35,9 @@
             return toBuyList;
         }
 
-        service.bought = function (item) {
-            var idxToRemove = toBuyList.indexOf(item);
-            boughtItems.push(item);
-            toBuyList.splice(idxToRemove,1)
+        service.bought = function (id) {
+            boughtItems.push(toBuyList[id]);
+            toBuyList.splice(id,1)
         }
 
         service.getBoughtItems = function () {
