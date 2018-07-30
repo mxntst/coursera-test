@@ -2,7 +2,27 @@
     'use strict';
     angular.module("NarrowItDownApp", [])
         .controller("NarrowItDownController", NarrowItDownController)
-        .service("MenuSearchService", MenuSearchService);  
+        .directive("foundItems", FoundItems)
+        .service("MenuSearchService", MenuSearchService);
+        
+    
+    function FoundItems() {
+        var dod = {
+            scope: {
+                items: "<foundItems"
+            },
+            controller: FoundItemsController,
+            controllerAs: "found",
+            bindToController: true,  
+            restrict: "E",
+            templateUrl : 'foundItems.html',         
+        }
+        return dod;
+    } 
+
+    function FoundItemsController() {
+        var ctrl = this;
+    }
 
     NarrowItDownController.$inject = ["MenuSearchService"];
     function NarrowItDownController(MenuSearchService) {
