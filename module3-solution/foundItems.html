@@ -1,10 +1,13 @@
 <div>
     <div class="container"></div>
-    <div class="container">
-    <div class="row" ng-repeat="item in found.items">
-        <div class="col-md-3">{{item.name}}</div>
-        <div class="col-md-3">{{item.short_name}}</div>
-        <div class="col-md-6">{{item.description}}</div>
-    </div>  
-    </div>
+    <table class="table table-striped">
+        <tbody>
+            <tr ng-repeat="item in found.items">
+                <td>{{item.name}}</td>
+                <td>{{item.short_name}}</td>
+                <td>{{item.description}}</td>
+                <td><button type="button" class="btn btn-warning" ng-click="found.onRemove({itemIndex: $index});">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>    
 </div>

@@ -2,26 +2,31 @@
     'use strict';
     angular.module("NarrowItDownApp", [])
         .controller("NarrowItDownController", NarrowItDownController)
-        .directive("foundItems", FoundItems)
-        .service("MenuSearchService", MenuSearchService);
-        
+        .directive("foundItems", FoundItemsDirective)
+        .service("MenuSearchService", MenuSearchService);     
     
-    function FoundItems() {
+    function FoundItemsDirective() {
         var dod = {
             scope: {
                 items: "<foundItems"
             },
-            controller: FoundItemsController,
+            onRemove: '&',
+            controller: FoundItemsDirectiveController,
             controllerAs: "found",
             bindToController: true,  
             restrict: "E",
-            templateUrl : 'foundItems.html',         
+            templateUrl : 'foundItems.html',
         }
         return dod;
     } 
 
-    function FoundItemsController() {
+    function FoundItemsDirectiveController() {
         var ctrl = this;
+        console.log("FoundItemsController", this)
+        //return this;
+       /* ctrl.onRemove = function(arg) {
+            console.log(arg)
+        } */
     }
 
     NarrowItDownController.$inject = ["MenuSearchService"];
@@ -36,6 +41,11 @@
                 ctrl.found = foundItems;
             })
             .catch(function(e) { console.error(e);})
+        }
+        ctrl.removeItem = function(itemIndex) {
+            console.log("narrow controller", itemIndex);
+            console.log("this", this)
+            ctrl.found.splice(itemIndex,1);
         }
         
     }

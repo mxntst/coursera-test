@@ -18,9 +18,9 @@
     <div class="form-group narrow-button" ng-click="ctrl.narrow()">
       <button class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
+    <button type="button" class="btn btn-info" ng-click="ctrl.removeItem(1)">Remove 2nd item</button>
     <!-- found-items should be implemented as a component TODO -->
-    <found-items found-items="ctrl.found" on-remove="...."></found-items>
-    
+    <found-items found-items="ctrl.found" on-remove="ctrl.removeItem(itemIndex)"></found-items>
    <!-- <found-items fileterd-items="ctrl.found"></found-items> -->
   </div>
 
