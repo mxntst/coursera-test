@@ -8,6 +8,8 @@
       <tbody>
         <tr ng-repeat="category in categories.items">
           <td > <a ui-sref="items({categoryShortName: category.short_name})">{{ category.name }}</a></td>
+          <td > <button class="button btn-primary" ui-sref="items({categoryShortName: category.short_name})">Items</button></td>
+        
         </tr>
       </tbody>
     </table>
