@@ -1,6 +1,15 @@
 <div class="container">
-  <h3>Item</h3>
-  <div class="row">
-    <div class="col-md-12">{{ item.name }}</div>
+    <h2>Items</h2>
+    <div class="row">
+      <table class="table table-striped">
+        <tbody>
+          <tr ng-repeat="item in menu-items.items">
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price_small }}</td>
+            <td>{{ item.price_large }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>

@@ -16,10 +16,14 @@
       .state('categories', {
         url: '/categories', 
         controller: "CategoriesController as categories",
-        templateUrl: 'src/templates/categoriesComponent.template.html'}
-      )
+        templateUrl: 'src/templates/categoriesComponent.template.html',
+        resolve: {
+          items: ['MenuDataService', function (MenuDataService) {
+            return MenuDataService.getAllCategories();
+          }]}
+      })  
       .state('items', {
-        url: '/categories/:catId/items', 
+        url: '/categories/:categoryShortName/items', 
         templateUrl: 'src/templates/itemsComponent.template.html'}
       )
     }
