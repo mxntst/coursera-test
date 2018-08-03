@@ -1,15 +1,11 @@
 (function () {
     angular.module("data")
     .service("MenuDataService", MenuDataService)
-    .config(Config);
+    .constant("Config", {
+        categoriesUrl: "https://davids-restaurant.herokuapp.com/categories.json",
+        menuItemsUrl: " https://davids-restaurant.herokuapp.com/menu_items.json"     
+    });
 
-    function Config() {
-        return {
-            categoriesUrl: "https://davids-restaurant.herokuapp.com/categories.json",
-            menuItemsUrl: " https://davids-restaurant.herokuapp.com/menu_items.json"     
-        }
-    }
-    
     MenuDataService.$inject = ["$http", "Config"];
     
     function MenuDataService ($http, Config)  {

@@ -4,6 +4,6 @@
   .component("categories", {
     templateUrl: 'templates/categoriesComponent.template.html',
     bindings: {
-      item: "<"
+      items: "<"
     }});
   })();

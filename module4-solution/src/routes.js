@@ -9,10 +9,18 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('home',
-      {url: '/', templateUrl: 'src/templates/categoriesComponent.template.html'} 
-      );
-    console.log("RoutesConfig $stateProvider: ", $stateProvider);
-    console.log("RoutesConfig $urlRouterProvider: ", $urlRouterProvider);
-  }
+      .state('home', {
+        url: '/',
+        templateUrl: 'src/templates/home.template.html'} 
+      )
+      .state('categories', {
+        url: '/categories', 
+        controller: "CategoriesController as categories",
+        templateUrl: 'src/templates/categoriesComponent.template.html'}
+      )
+      .state('items', {
+        url: '/categories/:catId/items', 
+        templateUrl: 'src/templates/itemsComponent.template.html'}
+      )
+    }
 })();
