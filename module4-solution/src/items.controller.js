@@ -1,16 +1,16 @@
 (function () {
   
   angular.module("MenuApp")
-  .controller("CategoriesController", CategoriesController);
+  .controller("ItemsController", ItemsController  );
   
-  CategoriesController.$inject = ["$stateParams", "MenuDataService"];
-  function CategoriesController ($stateParams, MenuDataService) {
+  ItemsController.$inject = ["$stateParams", "MenuDataService"];
+  function ItemsController ($stateParams, MenuDataService) {
     var ctrl = this;
     ctrl.items = [];
     MenuDataService.getItemsForCategory($stateParams.categoryShortName)
     .then(function(data) {
-      console.log("CategoriesController data", data);
-      ctrl.items = data;
+      console.log("ItemsController data", data);
+      ctrl.items = data.menu_items;
     })
   }
   })();

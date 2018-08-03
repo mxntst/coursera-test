@@ -23,7 +23,8 @@
           }]}
       })  
       .state('items', {
-        url: '/categories/:categoryShortName/items', 
+        url: '/categories/{categoryShortName}/items', 
+        controller: "ItemsController as menuItems",
         templateUrl: 'src/templates/itemsComponent.template.html'}
       )
     }
